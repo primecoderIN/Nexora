@@ -58,7 +58,19 @@ git clone https://github.com/primecoderIN/Shipwise.git
 cd Shipwise
 ```
 
-*(Detailed environment variables, Docker Compose instructions, and test accounts will be added as infrastructure phases are completed).*
+### 2. Spin up the infrastructure
+Run the provided PowerShell script to bootstrap the local environment (PostgreSQL, Redis, Mailpit, MinIO).
+```powershell
+.\start.ps1
+```
+*(The script will automatically generate your `.env` file from `.env.example` if it doesn't exist).*
+
+### 3. Access Local Services
+Once running, you can access the local infrastructure tools:
+- **Mailpit (Email Testing)**: [http://localhost:8025](http://localhost:8025)
+- **MinIO (S3 Storage UI)**: [http://localhost:9001](http://localhost:9001)
+
+To cleanly shut down the environment, run `.\stop.ps1`.
 
 ---
 
