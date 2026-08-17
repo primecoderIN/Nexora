@@ -1,0 +1,26 @@
+# Shipwise specific
+knowledge-base/
+SHIPWISE_IMPLEMENTATION_PLAN.md
+SHIPWISE_PHASE_PROMPTS.md
+
+# .NET Core
+bin/
+obj/
+*.user
+*.suo
+*.db
+*.sqlite
+appsettings.Development.json
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+npm-debug.log
+
+# IDEs / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
