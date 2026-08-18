@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Shipwise.Modules/" />
+  <Folder Name="/Shipwise.Modules/Identity/">
+    <Project Path="Shipwise.Modules/Identity/Shipwise.Modules.Identity.csproj" />
+  </Folder>
+  <Project Path="Shipwise.Api/Shipwise.Api.csproj" />
+  <Project Path="Shipwise.Shared/Shipwise.Shared.csproj" />
+</Solution>
