@@ -12,7 +12,8 @@ Shipwise is structured as a full-stack web application optimized for maintainabi
 
 ### Backend
 - **Framework**: ASP.NET Core Web API
-- **Architecture**: Modular Monolith following Clean Architecture principles.
+- **Architecture**: Event-Driven Modular Monolith following Clean Architecture principles.
+- **Project Structure**: Vertical Slicing (Single-Project Modules). Each module is a single `.csproj` containing `API`, `Application`, `Domain`, and `Persistence` folders. Modules communicate only via Domain Events via a `Shared` kernel.
 - **Database**: PostgreSQL (via Entity Framework Core)
 - **Patterns**: CQRS using MediatR, FluentValidation.
 - **Real-time**: SignalR for collaborative updates.

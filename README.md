@@ -21,7 +21,7 @@ Shipwise is a full-stack, enterprise-grade engineering management platform built
 
 Shipwise isn't just a basic CRUD app; it is engineered to solve complex organizational problems using modern architectural patterns:
 
-- 🏗️ **Modular Monolith Architecture**: The backend is highly cohesive but loosely coupled. Business domains are strictly partitioned into isolated modules, ensuring future readiness.
+- 🏗️ **Event-Driven Modular Monolith**: The backend is highly cohesive but loosely coupled. Business domains are partitioned into Single-Project Modules (Vertical Slicing) enforcing Clean Architecture, ensuring strict isolation without project bloat.
 - 🔐 **Advanced Tenant & Authorization Security**: A custom RBAC engine and robust feature flag system (tenant/user/beta) strictly gates resources. Organizations are isolated to prevent cross-tenant data bleeding (BOLA/IDOR prevention).
 - 🎨 **State-of-the-art White-Label UI**: A responsive, accessible component system built on PrimeNG and Tailwind CSS, featuring dynamic theming and white-labeling for enterprise clients.
 - ⚡ **Real-Time Collaboration**: Powered by SignalR, ensuring that task updates, approvals, and release health metrics are synchronized across all active users instantly.
@@ -85,7 +85,7 @@ For a deeper dive into the architectural decisions, database schema, and API con
 * [**Approval Workflow**](./docs/approval-workflow.md) — Auditable sign-offs and deployment gates.
 * [**Backend Architecture & Patterns**](./docs/architecture.md) — CQRS, MediatR, and project dependency rules.
 * [**General Onboarding & Setup**](./docs/ONBOARDING.md) — *(Coming soon)* Quick-start guide and local environment configuration.
-* [**Project Folder Structure**](./docs/folder-structure.md) — *(Coming soon)* Complete annotated directory tree.
+* [**Project Folder Structure**](./docs/folder-structure.md) — Complete annotated directory tree demonstrating our Single-Project Module architecture.
 * [**Authorization & Security Guide**](./docs/authorization.md) — *(Coming soon)* RBAC matrices, tenant isolation, and BOLA mitigation.
 * [**API Endpoints Catalog**](./docs/api-endpoints.md) — *(Coming soon)* Comprehensive list of routes and standard envelopes.
 * [**Database Schema & Migrations**](./docs/database-schema.md) — *(Coming soon)* Mapping of schemas, indexes, and migrations.
