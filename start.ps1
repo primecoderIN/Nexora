@@ -21,6 +21,7 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "🗄️ Redis       : localhost:6379"
     Write-Host "📧 Mailpit    : http://localhost:8025"
     Write-Host "🪣 MinIO      : http://localhost:9001 (API: 9000)"
+    Write-Host "🔐 Keycloak   : http://localhost:8080 (admin/admin)"
     Write-Host "----------------------------------------------------"
     Write-Host "Run .\stop.ps1 to shut down the environment." -ForegroundColor Gray
 } else {
