@@ -37,6 +37,7 @@ Shipwise isn't just a basic CRUD app; it is engineered to solve complex organiza
 * **Mediation**: MediatR (with FluentValidation pipeline behaviors)
 * **Data Access**: Entity Framework Core (EF Core)
 * **Database**: PostgreSQL
+* **Identity Provider**: Keycloak (OIDC / JWT)
 * **Real-time & Jobs**: SignalR, Hangfire
 * **Storage**: MinIO (S3-compatible)
 
@@ -69,6 +70,7 @@ Run the provided PowerShell script to bootstrap the local environment (PostgreSQ
 Once running, you can access the local infrastructure tools:
 - **Mailpit (Email Testing)**: [http://localhost:8025](http://localhost:8025)
 - **MinIO (S3 Storage UI)**: [http://localhost:9001](http://localhost:9001)
+- **Keycloak (Identity & Auth)**: [http://localhost:8080](http://localhost:8080)
 
 To cleanly shut down the environment, run `.\stop.ps1`.
 
