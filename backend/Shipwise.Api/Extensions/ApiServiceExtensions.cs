@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Shipwise.Shared.Identity;
@@ -11,6 +12,16 @@ public static class ApiServiceExtensions
     {
         services.AddControllers();
         services.AddOpenApi();
+        
+        // Register MediatR
+        services.AddMediatR(cfg => 
+        {
+            cfg.RegisterServicesFromAssembly(typeof(Shipwise.Modules.Identity.Application.Tenants.CreateTenant.CreateTenantCommand).Assembly);
+            cfg.AddOpenBehavior(typeof(Shipwise.Shared.Validation.ValidationBehavior<,>));
+        });
+
+        // Register FluentValidation
+        services.AddValidatorsFromAssembly(typeof(Shipwise.Modules.Identity.Application.Tenants.CreateTenant.CreateTenantCommandValidator).Assembly);
         
         return services;
     }

@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Shipwise.Modules.Identity.Domain.Entities;
+using Shipwise.Shared.Identity;
 
 namespace Shipwise.Modules.Identity.Persistence;
 
-public class IdentityDbContext(DbContextOptions<IdentityDbContext> options) : DbContext(options)
+public class IdentityDbContext(DbContextOptions<IdentityDbContext> options, ICurrentUserContext currentUserContext) : DbContext(options)
 {
     public DbSet<Tenant> Tenants { get; set; } = null!;
     public DbSet<User> Users { get; set; } = null!;
@@ -37,6 +38,9 @@ public class IdentityDbContext(DbContextOptions<IdentityDbContext> options) : Db
 
             builder.HasIndex(u => u.IdentityId).IsUnique(); // Keycloak 'sub' must be unique
             builder.HasIndex(u => u.Email).IsUnique();
+
+            // MULTI-TENANCY: Global Query Filter
+            builder.HasQueryFilter(u => u.TenantId == currentUserContext.TenantId);
         });
     }
 }
