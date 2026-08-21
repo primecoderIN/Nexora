@@ -1,4 +1,4 @@
-﻿# Project Folder Structure
+# Project Folder Structure
 
 Nexora is built using an **Event-Driven Modular Monolith** approach. We utilize **Single-Project Modules** (often called Vertical Slicing) to enforce Clean Architecture boundaries while avoiding the "project explosion" commonly seen in massive enterprise solutions.
 
@@ -16,10 +16,9 @@ Nexora/
 │   │   └── Nexora.Api.csproj
 │   │
 │   ├── Nexora.Shared/                            ← 2. Shared Kernel
-│   │   ├── Behaviors/                              ← MediatR validation pipelines
-│   │   ├── Common/                                 ← ApiResponse envelope, Result<T> pattern
-│   │   ├── Exceptions/                             ← Standard domain exceptions (NotFound, Conflict)
-│   │   ├── Interfaces/                             ← IDomainEvent, IRepository
+│   │   ├── Exceptions/                             ← Domain exceptions (NotFound, BusinessRule, Unauthorized, etc.)
+│   │   ├── Interfaces/                             ← ICurrentUserContext, shared contracts
+│   │   ├── Validation/                             ← MediatR ValidationBehavior pipeline
 │   │   └── Nexora.Shared.csproj                  (References nothing)
 │   │
 │   └── Nexora.Modules/                           ← 3. Isolated Business Modules

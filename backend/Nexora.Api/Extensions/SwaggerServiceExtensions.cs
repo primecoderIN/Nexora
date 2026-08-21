@@ -1,6 +1,5 @@
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi;
-using System;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Nexora.Api.Extensions;
 

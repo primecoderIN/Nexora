@@ -1,4 +1,4 @@
-﻿# start.ps1
+# start.ps1
 # Bootstraps the Nexora local development environment
 
 Write-Host "🚀 Starting Nexora Infrastructure..." -ForegroundColor Cyan
@@ -22,6 +22,7 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "📧 Mailpit    : http://localhost:8025"
     Write-Host "🪣 MinIO      : http://localhost:9001 (API: 9000)"
     Write-Host "🔐 Keycloak   : http://localhost:8080 (admin/admin)"
+    Write-Host "🌐 Nexora API : http://localhost:5110/swagger"
     Write-Host "----------------------------------------------------"
     Write-Host "Run .\stop.ps1 to shut down the environment." -ForegroundColor Gray
 } else {
