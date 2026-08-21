@@ -1,4 +1,4 @@
-﻿# Nexora Architecture
+# Nexora Architecture
 
 Nexora is structured as a full-stack web application optimized for maintainability, security, and enterprise SaaS scalability.
 
@@ -16,6 +16,7 @@ Nexora is structured as a full-stack web application optimized for maintainabili
 - **Project Structure**: Vertical Slicing (Single-Project Modules). Each module is a single `.csproj` containing `API`, `Application`, `Domain`, and `Persistence` folders. Modules communicate only via Domain Events via a `Shared` kernel.
 - **Database**: PostgreSQL (via Entity Framework Core)
 - **Patterns**: CQRS using MediatR, FluentValidation.
+- **API Documentation**: Swagger/OpenAPI via Swashbuckle (configured with Keycloak JWT Bearer authentication).
 - **Real-time**: SignalR for collaborative updates.
 - **Background Jobs**: Hangfire.
 - **File Storage**: MinIO (S3-compatible).
