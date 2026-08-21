@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using System;
 
 namespace Nexora.Api.Extensions;
@@ -33,29 +33,18 @@ public static class SwaggerServiceExtensions
                 In = ParameterLocation.Header,
                 Type = SecuritySchemeType.ApiKey,
                 Scheme = "Bearer",
-                BearerFormat = "JWT",
-                Reference = new OpenApiReference
-                {
-                    Id = "Bearer",
-                    Type = ReferenceType.SecurityScheme
-                }
+                BearerFormat = "JWT"
             });
 
             // AddSecurityRequirement(...): This applies the security definition globally, so whenever you 
             // execute a request from Swagger UI, it will automatically attach the Authorization: Bearer <token> header for you.
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            options.AddSecurityRequirement(document =>
             {
+                var requirement = new OpenApiSecurityRequirement
                 {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    Array.Empty<string>()
-                }
+                    [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+                };
+                return requirement;
             });
         });
         
