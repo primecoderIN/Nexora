@@ -10,6 +10,9 @@ builder.Services.AddSwaggerServices();
 
 var app = builder.Build();
 
+// Enable Global Exception Handling as the first middleware
+app.UseExceptionHandler();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
