@@ -1,6 +1,6 @@
-# Onboarding & Setup
+﻿# Onboarding & Setup
 
-Welcome to the Shipwise engineering team! We use Docker Compose to ensure every developer has the exact same local environment, eliminating "it works on my machine" issues.
+Welcome to the Nexora engineering team! We use Docker Compose to ensure every developer has the exact same local environment, eliminating "it works on my machine" issues.
 
 ## Local Environment
 

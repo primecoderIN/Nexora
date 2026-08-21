@@ -1,7 +1,7 @@
-# Shipwise specific
+﻿# Nexora specific
 knowledge-base/
-SHIPWISE_IMPLEMENTATION_PLAN.md
-SHIPWISE_PHASE_PROMPTS.md
+NEXORA_IMPLEMENTATION_PLAN.md
+NEXORA_PHASE_PROMPTS.md
 
 # .NET Core
 bin/

@@ -1,7 +1,7 @@
-# start.ps1
-# Bootstraps the Shipwise local development environment
+﻿# start.ps1
+# Bootstraps the Nexora local development environment
 
-Write-Host "🚀 Starting Shipwise Infrastructure..." -ForegroundColor Cyan
+Write-Host "🚀 Starting Nexora Infrastructure..." -ForegroundColor Cyan
 
 # Ensure .env exists
 if (-not (Test-Path ".env")) {

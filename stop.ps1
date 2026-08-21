@@ -1,7 +1,7 @@
-# stop.ps1
-# Shuts down the Shipwise local development environment
+﻿# stop.ps1
+# Shuts down the Nexora local development environment
 
-Write-Host "🛑 Stopping Shipwise Infrastructure..." -ForegroundColor Yellow
+Write-Host "🛑 Stopping Nexora Infrastructure..." -ForegroundColor Yellow
 
 docker-compose down
 

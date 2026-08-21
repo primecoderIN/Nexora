@@ -1,5 +1,5 @@
-<div align="center">
-  <h1>Shipwise</h1>
+﻿<div align="center">
+  <h1>Nexora</h1>
   <p><strong>A Next-Generation, Release-Centric Engineering Management Platform</strong></p>
 
   <p>
@@ -13,13 +13,13 @@
 
 <br />
 
-Shipwise is a full-stack, enterprise-grade engineering management platform built for modern SaaS. Unlike traditional issue trackers, Shipwise treats the **Release** as the primary workspace, connecting backlogs, code reviews, manual approvals, and deployments into a single unified timeline.
+Nexora is a full-stack, enterprise-grade engineering management platform built for modern SaaS. Unlike traditional issue trackers, Nexora treats the **Release** as the primary workspace, connecting backlogs, code reviews, manual approvals, and deployments into a single unified timeline.
 
 ---
 
 ## ✨ Key Capabilities
 
-Shipwise isn't just a basic CRUD app; it is engineered to solve complex organizational problems using modern architectural patterns:
+Nexora isn't just a basic CRUD app; it is engineered to solve complex organizational problems using modern architectural patterns:
 
 - 🏗️ **Event-Driven Modular Monolith**: The backend is highly cohesive but loosely coupled. Business domains are partitioned into Single-Project Modules (Vertical Slicing) enforcing Clean Architecture, ensuring strict isolation without project bloat.
 - 🔐 **Advanced Tenant & Authorization Security**: A custom RBAC engine and robust feature flag system (tenant/user/beta) strictly gates resources. Organizations are isolated to prevent cross-tenant data bleeding (BOLA/IDOR prevention).
@@ -51,12 +51,12 @@ Shipwise isn't just a basic CRUD app; it is engineered to solve complex organiza
 
 ## 🚀 Getting Started
 
-The entire Shipwise platform is fully containerized for a friction-free developer experience.
+The entire Nexora platform is fully containerized for a friction-free developer experience.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/primecoderIN/Shipwise.git
-cd Shipwise
+git clone https://github.com/primecoderIN/Nexora.git
+cd Nexora
 ```
 
 ### 2. Spin up the infrastructure
@@ -80,7 +80,7 @@ To cleanly shut down the environment, run `.\stop.ps1`.
 
 For a deeper dive into the architectural decisions, database schema, and API contracts, please refer to the dedicated documentation files:
 
-* [**Domain Vocabulary**](./docs/domain-vocabulary.md) — The Ubiquitous Language used across the Shipwise platform.
+* [**Domain Vocabulary**](./docs/domain-vocabulary.md) — The Ubiquitous Language used across the Nexora platform.
 * [**Release Lifecycle**](./docs/release-lifecycle.md) — The core state machine defining a Release.
 * [**Development Workflow**](./docs/development-workflow.md) — The lifecycle and state machine of engineering Tasks.
 * [**Testing Workflow**](./docs/testing-workflow.md) — How QA and test cases are managed.

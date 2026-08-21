@@ -1,17 +1,17 @@
-# Domain Vocabulary (Ubiquitous Language)
+﻿# Domain Vocabulary (Ubiquitous Language)
 
-In Shipwise, we strictly adhere to Domain-Driven Design (DDD) principles. This means that the code, the database, and our conversations must use this exact terminology to prevent translation errors between business requirements and technical implementation.
+In Nexora, we strictly adhere to Domain-Driven Design (DDD) principles. This means that the code, the database, and our conversations must use this exact terminology to prevent translation errors between business requirements and technical implementation.
 
 ## Core Hierarchy
 
 ### 1. Organization (Tenant)
-The top-level billing and administrative entity. An Organization represents a single company using Shipwise. All data is strictly isolated at the Organization level (Multi-Tenancy).
+The top-level billing and administrative entity. An Organization represents a single company using Nexora. All data is strictly isolated at the Organization level (Multi-Tenancy).
 
 ### 2. Workspace
 A logical grouping within an Organization. Large companies might have multiple Workspaces (e.g., "Mobile App Team", "Backend API Team"). Users are granted roles at the Workspace level.
 
 ### 3. Release
-The absolute core of Shipwise. A **Release** is an independent, time-bound or feature-bound workspace (e.g., "v1.4.0" or "Q3 Major Update"). It contains its own backlog, tasks, bugs, approvals, and deployments. Shipwise tracks the health and progress of the Release as a whole.
+The absolute core of Nexora. A **Release** is an independent, time-bound or feature-bound workspace (e.g., "v1.4.0" or "Q3 Major Update"). It contains its own backlog, tasks, bugs, approvals, and deployments. Nexora tracks the health and progress of the Release as a whole.
 
 ---
 
@@ -50,4 +50,4 @@ The recorded event of moving a Release into a specific environment (e.g., "Stagi
 ## UI / Customization
 
 ### Widget
-A dynamic UI component available in the Shipwise Visual Builder. Users can drag and drop Widgets (e.g., "Timeline", "Metric Chart", "Approvals List") onto a canvas to create custom Release Overviews.
+A dynamic UI component available in the Nexora Visual Builder. Users can drag and drop Widgets (e.g., "Timeline", "Metric Chart", "Approvals List") onto a canvas to create custom Release Overviews.

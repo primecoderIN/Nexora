@@ -1,4 +1,4 @@
-# Shipwise Global Agent Rules
+﻿# Nexora Global Agent Rules
 
 ## C# Coding Standards & Best Practices
 

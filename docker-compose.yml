@@ -1,24 +1,24 @@
-version: '3.8'
+﻿version: '3.8'
 
-# Shipwise Local Infrastructure Foundation
+# Nexora Local Infrastructure Foundation
 
 networks:
-  shipwise-network:
+  nexora-network:
     driver: bridge
-    name: shipwise-network
+    name: nexora-network
 
 volumes:
   postgres-data:
-    name: shipwise-postgres-data
+    name: nexora-postgres-data
   redis-data:
-    name: shipwise-redis-data
+    name: nexora-redis-data
   minio-data:
-    name: shipwise-minio-data
+    name: nexora-minio-data
   
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: shipwise-postgres
+    container_name: nexora-postgres
     restart: unless-stopped
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
@@ -29,7 +29,7 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
-      - shipwise-network
+      - nexora-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s
@@ -38,7 +38,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: shipwise-redis
+    container_name: nexora-redis
     restart: unless-stopped
     command: redis-server --save 60 1 --loglevel warning
     ports:
@@ -46,7 +46,7 @@ services:
     volumes:
       - redis-data:/data
     networks:
-      - shipwise-network
+      - nexora-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -55,17 +55,17 @@ services:
 
   mailpit:
     image: axllent/mailpit
-    container_name: shipwise-mailpit
+    container_name: nexora-mailpit
     restart: unless-stopped
     ports:
       - "8025:8025"
       - "1025:1025"
     networks:
-      - shipwise-network
+      - nexora-network
 
   minio:
     image: minio/minio
-    container_name: shipwise-minio
+    container_name: nexora-minio
     restart: unless-stopped
     command: server /data --console-address ":9001"
     environment:
@@ -77,7 +77,7 @@ services:
     volumes:
       - minio-data:/data
     networks:
-      - shipwise-network
+      - nexora-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 5s
@@ -86,7 +86,7 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:24.0.0
-    container_name: shipwise-keycloak
+    container_name: nexora-keycloak
     restart: unless-stopped
     command: start-dev
     environment:
@@ -95,4 +95,4 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - shipwise-network
+      - nexora-network

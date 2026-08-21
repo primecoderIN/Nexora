@@ -1,0 +1,8 @@
+﻿<Solution>
+  <Folder Name="/Nexora.Modules/" />
+  <Folder Name="/Nexora.Modules/Identity/">
+    <Project Path="Nexora.Modules/Identity/Nexora.Modules.Identity.csproj" />
+  </Folder>
+  <Project Path="Nexora.Api/Nexora.Api.csproj" />
+  <Project Path="Nexora.Shared/Nexora.Shared.csproj" />
+</Solution>

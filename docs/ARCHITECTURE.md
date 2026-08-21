@@ -1,6 +1,6 @@
-# Shipwise Architecture
+﻿# Nexora Architecture
 
-Shipwise is structured as a full-stack web application optimized for maintainability, security, and enterprise SaaS scalability.
+Nexora is structured as a full-stack web application optimized for maintainability, security, and enterprise SaaS scalability.
 
 ## Tech Stack
 

@@ -1,6 +1,6 @@
-# Approval Workflow
+﻿# Approval Workflow
 
-In Shipwise, the **Approval (Sign-off)** phase acts as the final gatekeeper before a Release is deployed to Production. This workflow ensures compliance, accountability, and security.
+In Nexora, the **Approval (Sign-off)** phase acts as the final gatekeeper before a Release is deployed to Production. This workflow ensures compliance, accountability, and security.
 
 ## The Approval Model
 

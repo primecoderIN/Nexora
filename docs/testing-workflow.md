@@ -1,10 +1,10 @@
-# Testing Workflow
+﻿# Testing Workflow
 
-Quality Assurance (QA) is a first-class citizen in Shipwise. Testing is conducted within the context of a Release, ensuring that before any sign-off occurs, all targeted scenarios are validated.
+Quality Assurance (QA) is a first-class citizen in Nexora. Testing is conducted within the context of a Release, ensuring that before any sign-off occurs, all targeted scenarios are validated.
 
 ## Test Case State Machine
 
-A **Test Case** in Shipwise represents a specific scenario to be verified. It follows this lifecycle:
+A **Test Case** in Nexora represents a specific scenario to be verified. It follows this lifecycle:
 
 1. **Draft / Unassigned**
    - The test case has been defined for the Release.

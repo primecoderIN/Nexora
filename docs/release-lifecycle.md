@@ -1,6 +1,6 @@
-# Release Lifecycle
+﻿# Release Lifecycle
 
-In Shipwise, the **Release** is the primary container for work. Understanding the state machine of a Release is critical for both the frontend UI (which buttons are enabled/disabled) and the backend API (validation rules for state transitions).
+In Nexora, the **Release** is the primary container for work. Understanding the state machine of a Release is critical for both the frontend UI (which buttons are enabled/disabled) and the backend API (validation rules for state transitions).
 
 ## The State Machine
 

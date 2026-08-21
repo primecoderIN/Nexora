@@ -1,6 +1,6 @@
-# Development Workflow
+﻿# Development Workflow
 
-The Development Workflow in Shipwise defines how individual **Tasks** move from inception to completion within an active Release. This workflow ensures quality control, peer review, and traceability.
+The Development Workflow in Nexora defines how individual **Tasks** move from inception to completion within an active Release. This workflow ensures quality control, peer review, and traceability.
 
 ## Task State Machine
 
@@ -33,4 +33,4 @@ Every task within a Release follows this lifecycle:
    - The task is locked and considered complete for this Release.
 
 ## Integrations
-Shipwise relies heavily on webhooks from Version Control Systems (GitHub, GitLab, Azure DevOps) to automatically transition these states. For instance, linking a branch name like `feat/SW-102-user-auth` to a task will automatically track commits and PR statuses.
+Nexora relies heavily on webhooks from Version Control Systems (GitHub, GitLab, Azure DevOps) to automatically transition these states. For instance, linking a branch name like `feat/SW-102-user-auth` to a task will automatically track commits and PR statuses.
