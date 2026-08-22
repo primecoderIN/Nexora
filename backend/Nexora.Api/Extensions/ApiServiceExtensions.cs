@@ -45,6 +45,12 @@ public static class ApiServiceExtensions
         services.AddExceptionHandler<Nexora.Api.Middleware.GlobalExceptionHandler>();
         services.AddProblemDetails();
         
+        // Register Health Checks (Liveness/Readiness probes)
+        services.AddHealthChecks()
+            .AddNpgSql(configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("DefaultConnection not found"), name: "PostgreSQL")
+            .AddRedis(configuration.GetConnectionString("Redis") ?? throw new InvalidOperationException("Redis not found"), name: "Redis")
+            .AddUrlGroup(new Uri(configuration.GetConnectionString("MinIO") ?? throw new InvalidOperationException("MinIO not found")), name: "MinIO");
+
         return services;
     }
 }

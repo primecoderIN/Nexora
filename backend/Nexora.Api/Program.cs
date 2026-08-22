@@ -64,6 +64,7 @@ try
     // and queries the DB to find the user's TenantId, caching it for EF Core global query filters.
     app.UseTenantResolutionMiddleware();
 
+    app.MapHealthChecks("/api/health");
     app.MapControllers();
 
     app.Run();
