@@ -67,6 +67,9 @@ try
     app.MapHealthChecks("/api/health");
     app.MapControllers();
 
+    // Apply any pending database migrations before accepting HTTP requests
+    await app.ApplyDatabaseMigrationsAsync();
+
     app.Run();
 }
 catch (Exception ex)

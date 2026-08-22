@@ -29,4 +29,33 @@ public static class DatabaseServiceExtensions
 
         return services;
     }
+
+    /// <summary>
+    /// Applies any pending Entity Framework Core migrations on application startup.
+    /// In a massive distributed production environment, this should ideally be moved 
+    /// to a CI/CD pipeline step (or Init Container) to prevent migration race conditions.
+    /// </summary>
+    public static async Task ApplyDatabaseMigrationsAsync(this WebApplication app)
+    {
+        using var scope = app.Services.CreateScope();
+        var logger = scope.ServiceProvider.GetRequiredService<ILogger<WebApplication>>();
+
+        try
+        {
+            var identityContext = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
+            
+            // Wait for DB to be ready, then apply migrations. 
+            // In a real microservices scenario, we'd use a Polly retry policy here.
+            logger.LogInformation("Applying Identity Module database migrations...");
+            await identityContext.Database.MigrateAsync();
+            logger.LogInformation("Identity Module database migrations applied successfully.");
+            
+            // Future DbContexts (like ApplicationDbContext) will be migrated here as well.
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "An error occurred while applying database migrations.");
+            throw; // Fail fast if we can't migrate the database
+        }
+    }
 }
