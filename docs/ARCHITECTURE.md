@@ -15,7 +15,7 @@ Nexora is structured as a full-stack web application optimized for maintainabili
 - **Architecture**: Event-Driven Modular Monolith following Clean Architecture principles.
 - **Project Structure**: Vertical Slicing (Single-Project Modules). Each module is a single `.csproj` containing `API`, `Application`, `Domain`, and `Persistence` folders. Modules communicate only via Domain Events via a `Shared` kernel.
 - **Database**: PostgreSQL (via Entity Framework Core)
-- **Patterns**: CQRS using MediatR, FluentValidation.
+- **Patterns**: CQRS using MediatR, FluentValidation, Outbox Pattern (for reliable message delivery), and Inbox Pattern (for idempotent message processing).
 - **API Documentation**: Swagger/OpenAPI via Swashbuckle (configured with Keycloak JWT Bearer authentication).
 - **Real-time**: SignalR for collaborative updates.
 - **Background Jobs**: Hangfire.
@@ -28,3 +28,4 @@ Nexora is structured as a full-stack web application optimized for maintainabili
 ## Core Rules
 - **API Contracts**: Consistent camelCase JSON contracts across all endpoints.
 - **Security First**: Continuous OWASP ASVS baseline checking, secure sessions, and immutable audit trails.
+
