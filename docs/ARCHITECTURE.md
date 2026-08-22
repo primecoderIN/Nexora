@@ -16,11 +16,14 @@ Nexora is structured as a full-stack web application optimized for maintainabili
 - **Project Structure**: Vertical Slicing (Single-Project Modules). Each module is a single `.csproj` containing `API`, `Application`, `Domain`, and `Persistence` folders. Modules communicate only via Domain Events via a `Shared` kernel.
 - **Database**: PostgreSQL (via Entity Framework Core)
 - **Patterns**: CQRS using MediatR, FluentValidation, Outbox Pattern (for reliable message delivery), and Inbox Pattern (for idempotent message processing).
+- **Startup Strategy**: EF Core migrations and module-specific data seeding (`IDataSeeder`) are executed automatically and idempotently during application startup before HTTP requests are accepted.
 - **API Documentation**: Swagger/OpenAPI via Swashbuckle (configured with Keycloak JWT Bearer authentication).
 - **Real-time**: SignalR for collaborative updates.
 - **Background Jobs**: Hangfire.
 - **File Storage**: MinIO (S3-compatible).
-- **Observability**: Centralized logging with Correlation IDs injected via middleware for end-to-end distributed request tracing.
+- **Observability**: 
+  - Centralized structured logging with Correlation IDs injected via middleware for end-to-end distributed request tracing.
+  - Native Health Checks (`/api/health`) configured to concurrently probe PostgreSQL, Redis, and MinIO availability, enforcing a 503 Fail-Fast pattern if infrastructure is degraded.
 
 ### Infrastructure
 - Entirely Dockerized for development consistency (`docker-compose`).

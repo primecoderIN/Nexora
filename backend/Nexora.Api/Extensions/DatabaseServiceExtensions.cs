@@ -27,6 +27,9 @@ public static class DatabaseServiceExtensions
             });
         });
 
+        // Register Data Seeders per module
+        services.AddScoped<Nexora.Shared.Interfaces.IDataSeeder, Nexora.Modules.Identity.Persistence.Seeders.IdentityDataSeeder>();
+
         return services;
     }
 
@@ -51,11 +54,20 @@ public static class DatabaseServiceExtensions
             logger.LogInformation("Identity Module database migrations applied successfully.");
             
             // Future DbContexts (like ApplicationDbContext) will be migrated here as well.
+
+            // Execute all registered IDataSeeder implementations across all modules
+            logger.LogInformation("Running registered data seeders...");
+            var seeders = scope.ServiceProvider.GetServices<Nexora.Shared.Interfaces.IDataSeeder>();
+            foreach (var seeder in seeders)
+            {
+                await seeder.SeedAsync();
+            }
+            logger.LogInformation("Data seeding process completed.");
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "An error occurred while applying database migrations.");
-            throw; // Fail fast if we can't migrate the database
+            logger.LogError(ex, "An error occurred while applying database migrations or seeding data.");
+            throw; // Fail fast if we can't migrate or seed the database
         }
     }
 }
