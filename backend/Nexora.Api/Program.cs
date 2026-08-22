@@ -1,4 +1,5 @@
 using Nexora.Api.Extensions;
+using Nexora.Api.Middleware;
 using Nexora.Modules.Identity.API.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ var app = builder.Build();
 
 // Enable Global Exception Handling as the first middleware
 app.UseExceptionHandler();
+
+// Ensure Correlation ID is generated and injected into logs as early as possible
+app.UseCorrelationId();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -20,6 +20,7 @@ Nexora is structured as a full-stack web application optimized for maintainabili
 - **Real-time**: SignalR for collaborative updates.
 - **Background Jobs**: Hangfire.
 - **File Storage**: MinIO (S3-compatible).
+- **Observability**: Centralized logging with Correlation IDs injected via middleware for end-to-end distributed request tracing.
 
 ### Infrastructure
 - Entirely Dockerized for development consistency (`docker-compose`).
