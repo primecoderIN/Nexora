@@ -22,7 +22,7 @@ public class IdentityDataSeeder(IdentityDbContext dbContext, ILogger<IdentityDat
         var defaultTenantId = Guid.Parse("00000000-0000-0000-0000-000000000001");
         
         // IDEMPOTENCY CHECK: Does a Tenant with this ID already exist in PostgreSQL?
-        var tenantExists = await dbContext.Tenants.AnyAsync(t => t.Id == defaultTenantId, cancellationToken);
+        var tenantExists = await dbContext.Tenants.IgnoreQueryFilters().AnyAsync(t => t.Id == defaultTenantId, cancellationToken);
 
         if (!tenantExists)
         {
@@ -39,7 +39,7 @@ public class IdentityDataSeeder(IdentityDbContext dbContext, ILogger<IdentityDat
         var adminEmail = "admin@nexora.com";
         
         // IDEMPOTENCY CHECK: Does a User with this email already exist?
-        var userExists = await dbContext.Users.AnyAsync(u => u.Email == adminEmail, cancellationToken);
+        var userExists = await dbContext.Users.IgnoreQueryFilters().AnyAsync(u => u.Email == adminEmail, cancellationToken);
 
         if (!userExists)
         {
