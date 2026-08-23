@@ -1,5 +1,15 @@
-﻿namespace Nexora.Modules.Identity.Domain.Entities;
+namespace Nexora.Modules.Identity.Domain.Entities;
 
+/// <summary>
+/// Represents an authenticated user in the system.
+/// Users are synchronized with the external Identity Provider (e.g., Keycloak).
+/// </summary>
+/// <param name="id">The unique internal identifier for the user.</param>
+/// <param name="identityId">The unique subject (sub) claim from the Identity Provider.</param>
+/// <param name="email">The user's email address.</param>
+/// <param name="firstName">The user's first name.</param>
+/// <param name="lastName">The user's last name.</param>
+/// <param name="tenantId">The identifier of the tenant this user belongs to.</param>
 public class User(Guid id, string identityId, string email, string firstName, string lastName, Guid tenantId)
 {
     public Guid Id { get; private set; } = id;

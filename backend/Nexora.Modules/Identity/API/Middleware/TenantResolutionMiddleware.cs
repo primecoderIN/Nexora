@@ -7,6 +7,11 @@ using Nexora.Modules.Identity.Persistence;
 
 namespace Nexora.Modules.Identity.API.Middleware;
 
+/// <summary>
+/// Middleware responsible for extracting the Keycloak 'sub' claim from the JWT,
+/// looking up the user in the database, and caching their internal UserId and TenantId
+/// for the duration of the HTTP request.
+/// </summary>
 public class TenantResolutionMiddleware(RequestDelegate next)
 {
     public async Task InvokeAsync(HttpContext context)

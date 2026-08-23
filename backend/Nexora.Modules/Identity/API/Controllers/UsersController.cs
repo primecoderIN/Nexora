@@ -1,4 +1,4 @@
-﻿using System.Security.Claims;
+using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,12 +6,22 @@ using Nexora.Modules.Identity.Application.Users.SyncUser;
 
 namespace Nexora.Modules.Identity.API.Controllers;
 
+/// <summary>
+/// API Controller for managing User synchronization.
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
 public class UsersController(IMediator mediator) : ControllerBase
 {
     public record SyncUserRequest(Guid TenantId);
+
+    /// <summary>
+    /// Synchronizes an authenticated user from Keycloak into the Nexora database, 
+    /// associating them with the specified Tenant.
+    /// </summary>
+    /// <param name="request">The request containing the Target Tenant ID.</param>
+    /// <returns>The synchronized User ID.</returns>
 
     [HttpPost("sync")]
     public async Task<IActionResult> SyncUser([FromBody] SyncUserRequest request)

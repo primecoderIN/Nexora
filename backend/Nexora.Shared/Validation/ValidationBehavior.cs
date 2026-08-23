@@ -1,8 +1,14 @@
-﻿using FluentValidation;
+using FluentValidation;
 using MediatR;
 
 namespace Nexora.Shared.Validation;
 
+/// <summary>
+/// A MediatR pipeline behavior that automatically validates incoming requests 
+/// using FluentValidation validators registered in the DI container.
+/// </summary>
+/// <typeparam name="TRequest">The type of the request being handled.</typeparam>
+/// <typeparam name="TResponse">The type of the response from the handler.</typeparam>
 public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators) 
     : IPipelineBehavior<TRequest, TResponse> 
     where TRequest : IRequest<TResponse>

@@ -1,4 +1,4 @@
-﻿using System.Security.Claims;
+using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,12 +6,21 @@ using Nexora.Modules.Identity.Application.Tenants.CreateTenant;
 
 namespace Nexora.Modules.Identity.API.Controllers;
 
+/// <summary>
+/// API Controller for managing Tenant resources.
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
 public class TenantsController(IMediator mediator) : ControllerBase
 {
     public record CreateTenantRequest(string TenantName);
+
+    /// <summary>
+    /// Creates a new Tenant and assigns the calling user as the first member.
+    /// </summary>
+    /// <param name="request">The tenant creation request containing the name.</param>
+    /// <returns>The newly created Tenant ID.</returns>
 
     [HttpPost]
     public async Task<IActionResult> CreateTenant([FromBody] CreateTenantRequest request)
