@@ -39,8 +39,8 @@ services:
     container_name: nexora-pgadmin
     restart: unless-stopped
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@nexora.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - "5050:80"
     depends_on:
@@ -121,8 +121,12 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       # Use .env file variables — same pattern as postgres, minio services above
       - ConnectionStrings__DefaultConnection=${API_DB_CONNECTION}
+      - ConnectionStrings__Redis=${API_REDIS_CONNECTION}
+      - ConnectionStrings__MinIO=${API_MINIO_CONNECTION}
       - Authentication__Keycloak__Authority=${API_KEYCLOAK_AUTHORITY}
       - Authentication__Keycloak__Audience=${API_KEYCLOAK_AUDIENCE}
+      - HealthChecks__Keycloak=${API_KEYCLOAK_HEALTH}
+      - HealthChecks__Mailpit=${API_MAILPIT_HEALTH}
     depends_on:
       - postgres
       - redis
