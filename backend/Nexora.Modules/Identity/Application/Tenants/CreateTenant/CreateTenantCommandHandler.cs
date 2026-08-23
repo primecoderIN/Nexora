@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Nexora.Modules.Identity.Domain.Entities;
 using Nexora.Modules.Identity.Persistence;
@@ -20,11 +20,11 @@ public class CreateTenantCommandHandler(IdentityDbContext dbContext) : IRequestH
         }
 
         // Create the Tenant
-        var tenantId = Guid.NewGuid();
+        var tenantId = Guid.CreateVersion7();
         var tenant = new Tenant(tenantId, request.TenantName);
 
         // Create the Owner User
-        var userId = Guid.NewGuid();
+        var userId = Guid.CreateVersion7();
         var user = new User(
             id: userId,
             identityId: request.IdentityId,

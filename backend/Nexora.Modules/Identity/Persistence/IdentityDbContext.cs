@@ -20,6 +20,7 @@ public class IdentityDbContext(DbContextOptions<IdentityDbContext> options, ICur
         {
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Name).IsRequired().HasMaxLength(256);
+            builder.Property(t => t.CreatedAt).IsRequired();
             
             // 1-to-many relationship
             builder.HasMany(t => t.Users)
@@ -35,6 +36,7 @@ public class IdentityDbContext(DbContextOptions<IdentityDbContext> options, ICur
             builder.Property(u => u.Email).IsRequired().HasMaxLength(256);
             builder.Property(u => u.FirstName).IsRequired().HasMaxLength(128);
             builder.Property(u => u.LastName).IsRequired().HasMaxLength(128);
+            builder.Property(u => u.JoinedAt).IsRequired();
 
             builder.HasIndex(u => u.IdentityId).IsUnique(); // Keycloak 'sub' must be unique
             builder.HasIndex(u => u.Email).IsUnique();

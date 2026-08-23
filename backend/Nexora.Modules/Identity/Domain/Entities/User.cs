@@ -17,6 +17,7 @@ public class User(Guid id, string identityId, string email, string firstName, st
     public string Email { get; private set; } = email;
     public string FirstName { get; private set; } = firstName;
     public string LastName { get; private set; } = lastName;
+    public DateTimeOffset JoinedAt { get; private set; } = DateTimeOffset.UtcNow;
 
     // Each user belongs to exactly one Tenant
     public Guid TenantId { get; private set; } = tenantId;

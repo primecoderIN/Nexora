@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Nexora.Modules.Identity.Domain.Entities;
 using Nexora.Modules.Identity.Persistence;
@@ -37,7 +37,7 @@ public class SyncUserCommandHandler(IdentityDbContext dbContext) : IRequestHandl
         }
 
         // 3. Create the User and assign them to the requested Tenant
-        var userId = Guid.NewGuid();
+        var userId = Guid.CreateVersion7();
         var user = new User(
             id: userId,
             identityId: request.IdentityId,
